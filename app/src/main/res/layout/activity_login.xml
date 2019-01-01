@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_login">
+
+        <android.support.v7.widget.Toolbar style="@style/ToolbarStyle"
+            android:id="@+id/toolbar">
+
+            <ImageButton
+                android:paddingStart="10dp"
+                android:layout_width="100px"
+                android:layout_height="100px"
+                android:src="@drawable/ic_back"
+                android:background="@android:color/transparent"
+                />
+        </android.support.v7.widget.Toolbar>
+
+        <RelativeLayout
+            android:id="@+id/containerLayout"
+            android:layout_margin="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar">
+
+            <TextView
+                android:id="@+id/login_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/label_title"
+                android:text="@string/login_msg"
+                android:textSize="32sp"
+                android:textColor="@color/purple"/>
+
+            <TextView
+                android:id="@+id/login_submsg"
+                android:layout_below="@id/login_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/label_title"
+                android:text="@string/login_submsg"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/login_submsg2"
+                android:layout_below="@id/login_submsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_submsg2"
+                android:textSize="18sp"
+                android:fontFamily="@font/lato"/>
+
+            <EditText
+                android:id="@+id/npm_id"
+                android:layout_below="@id/login_submsg2"
+                android:layout_marginTop="120dp"
+                android:hint="NPM"
+                android:drawableLeft="@drawable/ic_avatar"
+                android:drawablePadding="15dp"
+                style="@style/EditTextStyle"/>
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_below="@id/npm_id"
+                android:layout_marginTop="10dp"
+                android:hint="Password"
+                android:drawableLeft="@drawable/ic_lock"
+                android:drawablePadding="15dp"
+                android:inputType="textPassword"
+                style="@style/EditTextStyle"/>
+
+            <com.rey.material.widget.CheckBox
+                android:layout_below="@id/password"
+                android:id="@+id/ckbRemember"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Material.Drawable.CheckBox"
+                android:fontFamily="@font/lato"
+                android:text="  Remember me"
+                android:gravity="center_vertical"
+                android:textColor="@color/text"
+                app:cbd_strokeColor ="@color/textHint"
+                android:textSize="12sp"
+                app:cbd_tickColor="@color/textHint" />
+
+            <TextView
+                android:layout_below="@id/password"
+                android:layout_marginTop="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Don't have an account ?"
+                android:layout_alignParentRight="true"
+                android:paddingRight="50dp"
+                android:textSize="12dp"/>
+
+            <TextView
+                android:layout_below="@id/password"
+                android:textColor="@color/purple"
+                android:layout_marginTop="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Register"
+                android:layout_alignParentRight="true"
+                android:textSize="12dp"/>
+
+            <ProgressBar
+                android:id="@+id/progress_lgn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ckbRemember"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="30dp"/>
+
+            <Button
+                android:id="@+id/login"
+                android:layout_marginTop="30dp"
+                android:layout_below="@id/ckbRemember"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Btn_login"
+                android:text="@string/btn_login"
+                android:textAllCaps="false"
+                android:textSize="20sp"/>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

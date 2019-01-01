@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".splash"
+    android:background="@drawable/splash">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="450dp">
+
+        <RelativeLayout
+            android:id="@+id/ContainertTitle"
+            android:layout_width="match_parent"
+            android:layout_height="150sp">
+
+            <TextView
+                style="@style/label_title"
+                android:id="@+id/welcome"
+                android:textSize="28dp"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/welcome"/>
+
+            <TextView
+                android:id="@+id/sub_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sub_welcome"
+                android:layout_below="@+id/welcome"
+                android:textAlignment="center"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20sp"
+                android:textSize="12dp"
+                android:textColor="@color/text" />
+            
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_below="@id/ContainertTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_reg"
+                android:layout_width="210dp"
+                android:layout_height="match_parent"
+                style="@style/Btn_reg_splash"
+                android:elevation="20dp"
+                android:text="@string/btn_reg"
+                android:textAllCaps="false"
+                android:textSize="20sp"/>
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="210dp"
+                android:layout_height="match_parent"
+                style="@style/Btn_log_splash"
+                android:text="@string/btn_login"
+                android:textAllCaps="false"
+                android:textSize="20sp" />
+
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

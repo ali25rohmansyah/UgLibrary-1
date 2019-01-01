@@ -1,0 +1,52 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/text</item>
+        <item name="colorPrimaryDark">@color/text</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="label_title" parent="AppTheme">
+        <item name="android:fontFamily">@font/lato_heavy</item>
+        <item name="android:textColor">@color/text</item>
+
+    </style>
+
+    <style name="Btn_log_splash" parent="Base.Widget.AppCompat.Button.Borderless">
+        <item name="android:background">@drawable/solid_bg</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:fontFamily">@font/lato_black</item>
+    </style>
+
+    <style name="Btn_login" parent="Base.Widget.AppCompat.Button.Borderless">
+        <item name="android:background">@drawable/ripple_effect</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:fontFamily">@font/lato_black</item>
+    </style>
+
+    <style name="Btn_reg_splash" parent="Base.Widget.AppCompat.Button.Borderless">
+        <item name="android:background">@drawable/solid_bg_white</item>
+        <item name="android:fontFamily">@font/lato_black</item>
+        <item name="android:textColor">@color/purple</item>
+    </style>
+
+    <style name="ToolbarStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?actionBarSize</item>
+    </style>
+
+    <style name="EditTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:backgroundTint">@color/textHint</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/text</item>
+        <item name="android:textColorHint">@color/textHint</item>
+
+
+    </style>
+</resources>

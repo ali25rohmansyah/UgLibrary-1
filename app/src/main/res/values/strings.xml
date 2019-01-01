@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Ug Library</string>
+
+    <string name="welcome">Welcome to UG Library</string>
+    <string name="sub_welcome">Memudahkan anda dalam meminjam buku\nataupun loker di dalam perpustakaan\nUniversitas Gunadarma</string>
+    <string name="btn_login">Log in</string>
+    <string name="btn_reg">Register</string>
+    <string name="login_msg">Hello,</string>
+    <string name="login_submsg">Log in with your NPM,</string>
+    <string name="login_submsg2">please enter your npm and password</string>
+</resources>
