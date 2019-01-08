@@ -198,7 +198,7 @@
                     android:id="@+id/logout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Keluar"
+                    android:text="Keluar Aplikasi"
                     android:fontFamily="@font/lato_bold"
                     android:textColor="@color/purple"
                     android:textSize="18sp"

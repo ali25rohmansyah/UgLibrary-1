@@ -24,6 +24,7 @@ public class LokerView extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
 
     String LokerID = "";
+    String status = "";
     FirebaseRecyclerAdapter<LokerModel,LokerViewHolder> adapter;
 
     @Override
@@ -52,17 +53,41 @@ public class LokerView extends AppCompatActivity {
 
         adapter = new FirebaseRecyclerAdapter<LokerModel, LokerViewHolder>(LokerModel.class,R.layout.loker_item,LokerViewHolder.class,Loker) {
             @Override
-            protected void populateViewHolder(LokerViewHolder viewHolder, LokerModel model, int position) {
+            protected void populateViewHolder(final LokerViewHolder viewHolder, LokerModel model, int position) {
                 viewHolder.TxtLokerId.setText(model.getLokerID());
                 viewHolder.TxtLokerStatus.setText(model.getStatus());
 
                 final LokerModel clickItem = model;
-                viewHolder.setItemClickListener(new ItemClickListener() {
-                    @Override
-                    public void onClick(View view, int position, boolean isLongClick) {
-                        Toast.makeText(LokerView.this, "Loke ke - "+clickItem.getLokerID(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+                status = clickItem.getStatus().toString();
+                if (status.equals("Tersedia")){
+                    viewHolder.setItemClickListener(new ItemClickListener() {
+                        @Override
+                        public void onClick(View view, int position, boolean isLongClick) {
+                            Toast.makeText(LokerView.this, "Loker ke - " + clickItem.getLokerID(), Toast.LENGTH_SHORT).show();
+
+
+                        }
+                    });
+
+            }
+
+                if (status.equals("Penuh")){
+                    viewHolder.setItemClickListener(new ItemClickListener() {
+                        @Override
+                        public void onClick(View view, int position, boolean isLongClick) {
+                            Toast.makeText(LokerView.this, "Penuh coy", Toast.LENGTH_SHORT).show();
+
+
+                        }
+                    });
+
+                }
+
+
+                if (status.equals("Penuh")){
+                    viewHolder.TxtLokerStatus.setText(status);
+                    viewHolder.TxtLokerStatus.setBackgroundColor(LokerView.this.getResources().getColor(R.color.full));
+                }
             }
         };
         recycler_loker.setAdapter(adapter);
