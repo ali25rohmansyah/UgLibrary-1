@@ -3,6 +3,7 @@
     package="com.greget.uglibrary">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,7 +20,8 @@
         </activity>
         <activity android:name=".login" />
         <activity android:name=".register" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".LokerView"></activity>
     </application>
 
 </manifest>

@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.greget.uglibrary.Common.Common;
 import com.greget.uglibrary.Model.Users;
 
 public class login extends AppCompatActivity {
@@ -63,13 +64,18 @@ public class login extends AppCompatActivity {
                                 Intent home = new Intent(login.this,
                                         MainActivity.class);
                                 startActivity(home);
+                                users.setNpm(npm.getText().toString());
+                                Common.currentUsers = users;
+                                login.setVisibility(View.VISIBLE);
                             } else {
                                 Toast.makeText(login.this, "Wrong password", Toast.LENGTH_SHORT).show();
+                                login.setVisibility(View.VISIBLE);
                             }
                         }
 
                         else{
                             Toast.makeText(login.this, "User not exists", Toast.LENGTH_SHORT).show();
+                            login.setVisibility(View.VISIBLE);
                         }
                     }
 

@@ -4,6 +4,7 @@ public class Users {
     private String jkel;
     private String nama;
     private String pass;
+    private String npm;
 
     public Users() {
     }
@@ -12,6 +13,14 @@ public class Users {
         this.jkel = jkel;
         this.nama = nama;
         this.pass = pass;
+    }
+
+    public String getNpm() {
+        return npm;
+    }
+
+    public void setNpm(String npm) {
+        this.npm = npm;
     }
 
     public String getJkel() {
