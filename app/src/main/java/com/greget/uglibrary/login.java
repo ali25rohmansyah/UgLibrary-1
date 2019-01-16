@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ import com.greget.uglibrary.Model.Users;
 public class login extends AppCompatActivity {
 
     EditText npm,pw;
+    ImageButton back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +36,7 @@ public class login extends AppCompatActivity {
 
         npm = (EditText)findViewById(R.id.npm_id);
         pw = (EditText)findViewById(R.id.password);
-
+        back = (ImageButton)findViewById(R.id.back_button);
         final Button login = findViewById(R.id.login);
         final ProgressBar prog_login = findViewById(R.id.progress_lgn);
         prog_login.setVisibility(View.INVISIBLE);
@@ -84,6 +86,13 @@ public class login extends AppCompatActivity {
 
                     }
                 });
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

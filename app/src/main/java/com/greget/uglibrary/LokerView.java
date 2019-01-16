@@ -1,5 +1,6 @@
 package com.greget.uglibrary;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -23,7 +24,7 @@ public class LokerView extends AppCompatActivity {
     RecyclerView recycler_loker;
     RecyclerView.LayoutManager layoutManager;
 
-    String LokerID = "";
+    String lokerID = "";
     String status = "";
     FirebaseRecyclerAdapter<LokerModel,LokerViewHolder> adapter;
 
@@ -35,6 +36,8 @@ public class LokerView extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         Loker = database.getReference("Loker");
+
+        Bundle bundle = new Bundle();
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbarLoker);
         toolbar.setTitle("Pilih Loker");
@@ -63,8 +66,10 @@ public class LokerView extends AppCompatActivity {
                     viewHolder.setItemClickListener(new ItemClickListener() {
                         @Override
                         public void onClick(View view, int position, boolean isLongClick) {
-                            Toast.makeText(LokerView.this, "Loker ke - " + clickItem.getLokerID(), Toast.LENGTH_SHORT).show();
-
+                            lokerID = clickItem.getLokerID().toString();
+                            Intent intent = new Intent(LokerView.this,booking.class);
+                            intent.putExtra("lokerID",lokerID);
+                            startActivity(intent);
 
                         }
                     });
@@ -75,9 +80,7 @@ public class LokerView extends AppCompatActivity {
                     viewHolder.setItemClickListener(new ItemClickListener() {
                         @Override
                         public void onClick(View view, int position, boolean isLongClick) {
-                            Toast.makeText(LokerView.this, "Penuh coy", Toast.LENGTH_SHORT).show();
-
-
+                            Toast.makeText(LokerView.this, "Maaf Loker tidak tersedia", Toast.LENGTH_SHORT).show();
                         }
                     });
 

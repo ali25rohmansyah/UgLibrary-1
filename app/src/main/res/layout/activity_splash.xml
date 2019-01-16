@@ -11,12 +11,12 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="450dp">
+        android:layout_marginTop="420dp">
 
         <RelativeLayout
             android:id="@+id/ContainertTitle"
             android:layout_width="match_parent"
-            android:layout_height="150sp">
+            android:layout_height="120sp">
 
             <TextView
                 style="@style/label_title"
@@ -46,7 +46,7 @@
     <Button
         android:layout_alignParentBottom="true"
         android:id="@+id/btn_reg"
-        android:layout_width="210dp"
+        android:layout_width="200dp"
         android:layout_height="60dp"
         style="@style/Btn_reg_splash"
         android:elevation="20dp"

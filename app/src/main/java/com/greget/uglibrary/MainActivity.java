@@ -1,12 +1,15 @@
 package com.greget.uglibrary;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.ImageView;
@@ -70,9 +73,35 @@ public class MainActivity extends AppCompatActivity {
                         Intent booking = new Intent(v.getContext(),LokerView.class);
                         startActivity(booking);
                     }
+                    if(finalI==1){
+
+                    }
+                    if(finalI==2){
+                        showInfoDialog();
+                    }
+                    if(finalI==3){
+
+                    }
                 }
             });
 
         }
+    }
+
+    private void showInfoDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                .setTitle("Info Perpustakaan")
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        dialogInterface.dismiss();
+                    }
+                });
+
+        AlertDialog dialog = builder.create();
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.info, null);
+        dialog.setView(dialogView);
+        dialog.show();
     }
 }

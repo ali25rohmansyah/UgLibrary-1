@@ -15,6 +15,7 @@
             android:id="@+id/toolbar">
 
             <ImageButton
+                android:id="@+id/back_button"
                 android:paddingStart="10dp"
                 android:layout_width="100px"
                 android:layout_height="100px"
