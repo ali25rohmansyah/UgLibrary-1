@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,6 +25,8 @@ import com.greget.uglibrary.Common.Common;
 import com.greget.uglibrary.Model.Users;
 
 import java.lang.reflect.Type;
+
+import io.paperdb.Paper;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,11 +58,16 @@ public class MainActivity extends AppCompatActivity {
             avatar.setImageResource(avatarImg.getResourceId(1,-1));
         }
 
+//        init paper
+        Paper.init(this);
+        
         GridLayout gridLayout = (GridLayout)findViewById(R.id.mainGrid);
 
         setSingleEvent(gridLayout);
 
     }
+
+
 
     private void setSingleEvent(GridLayout gridLayout) {
 
@@ -74,13 +82,21 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(booking);
                     }
                     if(finalI==1){
-
+                        Intent listbooking = new Intent(v.getContext(),ListBooking.class);
+                        startActivity(listbooking);
                     }
                     if(finalI==2){
                         showInfoDialog();
                     }
                     if(finalI==3){
 
+
+//                        Delete data remember
+                        Paper.book().destroy();
+
+                        Intent splash = new Intent(MainActivity.this,login.class);
+                        splash.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(splash);
                     }
                 }
             });

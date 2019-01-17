@@ -2,65 +2,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
-    <ImageView
-        android:id="@+id/v_logo"
-        android:layout_width="300px"
-        android:layout_height="300px"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="10dp"
-        android:src="@drawable/ic_loker"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/txt_app"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:textColor="@color/purple"
-        android:text="UG Library"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        />
-    <TextView
-        android:id="@+id/txt_versi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="Versi 0.1"
-        />
-    <TextView
-        android:id="@+id/txt_judul_pengembang"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:padding="10dp"
-        android:background="@color/purple"
-        android:textColor="@android:color/white"
-        android:text="Pengembang" />
-    <TextView
-        android:id="@+id/txt_data_pengembang"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:textColor="@color/purple"
-        android:text="Test" />
-    <TextView
-        android:id="@+id/txt_judul_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@color/purple"
-        android:textColor="@android:color/white"
-        android:text="Info Aplikasi" />
-    <TextView
-        android:id="@+id/txt_data_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="10dp"
-        android:paddingBottom="10dp"
-        android:textColor="@color/purple"
-        android:text=" Aplikasi ini berisikan beberapa penjalasan dalam dunia \n jaringan komputer, tujuannya aplikasi dapat bermanfaat \n bagi Siswa pada di jurusan Teknik Jaringan Komputer. \n \n Mohon Maaf apabila di dalam aplikasi ini masih banyak \n terdapat kekurangan." />
+
+            <ImageView
+                android:id="@+id/v_logo"
+                android:layout_width="300px"
+                android:layout_height="300px"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_loker"/>
+
+            <TextView
+                android:id="@+id/txt_app"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textColor="@color/purple"
+                android:text="UG Library"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                />
+            <TextView
+                android:id="@+id/txt_versi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Versi 0.1"
+                />
+            <TextView
+                android:id="@+id/txt_judul_pengembang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:padding="10dp"
+                android:background="@color/purple"
+                android:textColor="@android:color/white"
+                android:text="Tentang UG Library" />
+            <TextView
+                android:id="@+id/txt_data_pengembang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="@color/purple"
+                android:text="@string/Syarat_ketentuan"
+                />
+            <TextView
+                android:id="@+id/txt_judul_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/purple"
+                android:textColor="@android:color/white"
+                android:text="Info Aplikasi" />
+            <TextView
+                android:id="@+id/txt_data_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/purple"
+                android:text=" Aplikasi ini berisikan beberapa penjalasan dalam dunia \n jaringan komputer, tujuannya aplikasi dapat bermanfaat \n bagi Siswa pada di jurusan Teknik Jaringan Komputer. \n \n Mohon Maaf apabila di dalam aplikasi ini masih banyak \n terdapat kekurangan." />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
 </LinearLayout>

@@ -18,11 +18,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".login" android:parentActivityName=".splash"/>
-        <activity android:name=".register" android:parentActivityName=".splash"/>
+        <activity
+            android:name=".login"
+            android:parentActivityName=".splash" />
+        <activity
+            android:name=".register"
+            android:parentActivityName=".splash" />
         <activity android:name=".MainActivity" />
         <activity android:name=".LokerView" />
-        <activity android:name=".booking" android:parentActivityName=".LokerView"></activity>
+        <activity
+            android:name=".booking"
+            android:parentActivityName=".LokerView" />
+        <activity android:name=".ListBooking"></activity>
     </application>
 
 </manifest>

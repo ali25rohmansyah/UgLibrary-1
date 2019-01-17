@@ -28,6 +28,7 @@ import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.greget.uglibrary.Common.Common;
+import com.greget.uglibrary.Model.BookingModel;
 
 import org.w3c.dom.Text;
 
@@ -41,10 +42,8 @@ public class booking extends AppCompatActivity {
     ImageView barcode;
     TextView id_booking,id_jam;
     TimePickerDialog timePickerDialog;
-    TimePicker myTimePicker;
     Button btTimePicker, btGenerate;
     ImageButton back;
-    ProgressBar prog_barcode;
     int jam,menit;
     String user="";
     String lokerID="";
@@ -96,7 +95,7 @@ public class booking extends AppCompatActivity {
         btGenerate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (id_jam.getText().toString().equals("00:00")) {
+                if (id_jam.getText().toString().equals("--:--")) {
                     Toast.makeText(booking.this, "Waktu belum di set", Toast.LENGTH_SHORT).show();
                 } else {
                     try {
@@ -157,10 +156,12 @@ public class booking extends AppCompatActivity {
                  */
                 jam = hourOfDay;
                 menit = minute;
+                String a = Integer.toString(jam);
+                String b = Integer.toString(menit);
                 if (hourOfDay < 8 || hourOfDay > 18) {
                     Toast.makeText(booking.this, "waktu tidak tersedia", Toast.LENGTH_SHORT).show();
                 } else {
-                    id_jam.setText(hourOfDay + ":" + minute);
+                    id_jam.setText(a + ":" + b);
                 }
 
             }

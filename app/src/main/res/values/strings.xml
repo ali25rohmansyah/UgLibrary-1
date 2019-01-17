@@ -8,6 +8,20 @@
     <string name="login_msg">Hello,</string>
     <string name="login_submsg">Log in with your NPM,</string>
     <string name="login_submsg2">please enter your npm and password</string>
+    <string name="Syarat_ketentuan">
+        Syarat dan ketentuan pengguna : \n
+        1. hak kekayaan intelektual\n
+        2. Merek dagang\n
+        3. Link\n
+        4. toray tidak bertanggung jawab atas isi dari website pihak ketiga yang terhubung dari dan ke situs ini. link antara situs ini dan pihak ketiga tidak mengindikasikan bahwa toray merekomendasi situs yang terhubung tersebut\n
+        5. penolakan \n
+        6. Ketersediaan barang dan jasa \n
+        7. Hukum dan peradilan yang tepat pemberitahuan hukum : \n
+        \n
+        Syarat-syarat dan ketentuan dalam kebijakan privasi ini tunduk kepada hukum di wilayah Negara Kesatuan Republik Indonesia .\n
+        "kebijakan privasi : Dengan menggunakan layanan kami , anda mempercayakan informasi anda kepada kami. Kami paham bahwa melindungi informasi Anda dan memberikan kontrol kepada anda adalah tanggung jawab yang besar dan memerlukan kerja keras"
+
+    </string>
 
 
     <array name="genderImg">

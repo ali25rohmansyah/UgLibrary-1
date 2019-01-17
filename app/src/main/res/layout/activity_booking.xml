@@ -72,7 +72,7 @@
         android:layout_marginRight="20dp"
         android:id="@+id/id_jam"
         style="@style/label_title"
-        android:text="00:00"
+        android:text="--:--"
         android:textSize="70px"
         android:textColor="@color/purple"
         android:layout_width="match_parent"

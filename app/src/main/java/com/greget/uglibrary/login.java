@@ -19,11 +19,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.greget.uglibrary.Common.Common;
 import com.greget.uglibrary.Model.Users;
+import com.rey.material.widget.CheckBox;
+
+import io.paperdb.Paper;
 
 public class login extends AppCompatActivity {
 
     EditText npm,pw;
     ImageButton back;
+    CheckBox ckbRemember;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,7 @@ public class login extends AppCompatActivity {
         pw = (EditText)findViewById(R.id.password);
         back = (ImageButton)findViewById(R.id.back_button);
         final Button login = findViewById(R.id.login);
+        ckbRemember = (CheckBox)findViewById(R.id.ckbRemember);
         final ProgressBar prog_login = findViewById(R.id.progress_lgn);
         prog_login.setVisibility(View.INVISIBLE);
 
@@ -46,11 +51,20 @@ public class login extends AppCompatActivity {
         final DatabaseReference table_user = database.getReference("Users");
 
 
+//      init paper
+        Paper.init(this);
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 prog_login.setVisibility(View.VISIBLE);
                 login.setVisibility(View.INVISIBLE);
+
+
+                if (ckbRemember.isChecked()){
+                    Paper.book().write(Common.USER_KEY,npm.getText().toString());
+                    Paper.book().write(Common.PW_KEY,pw.getText().toString());
+                }
 
                 table_user.addValueEventListener(new ValueEventListener() {
                     @Override
