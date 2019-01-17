@@ -22,7 +22,7 @@
         <activity android:name=".register" android:parentActivityName=".splash"/>
         <activity android:name=".MainActivity" />
         <activity android:name=".LokerView" />
-        <activity android:name=".booking"></activity>
+        <activity android:name=".booking" android:parentActivityName=".LokerView"></activity>
     </application>
 
 </manifest>

@@ -43,7 +43,7 @@ public class splash extends AppCompatActivity {
                 Intent loginpage = new Intent(splash.this,
                         login.class);
                 startActivity(loginpage);
-                finish();
+
             }
         });
 
@@ -53,7 +53,7 @@ public class splash extends AppCompatActivity {
                 Intent registpage = new Intent(splash.this,
                         register.class);
                 startActivity(registpage);
-                finish();
+
             }
         });
     }

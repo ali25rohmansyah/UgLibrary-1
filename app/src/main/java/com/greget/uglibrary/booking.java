@@ -4,17 +4,25 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.graphics.Bitmap;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
@@ -28,17 +36,22 @@ import java.util.Calendar;
 import dmax.dialog.SpotsDialog;
 
 public class booking extends AppCompatActivity {
-    public final static int QRcodeWidth = 600;
+    public final static int QRcodeWidth = 500;
     Bitmap bitmap;
     ImageView barcode;
     TextView id_booking,id_jam;
     TimePickerDialog timePickerDialog;
     TimePicker myTimePicker;
     Button btTimePicker, btGenerate;
+    ImageButton back;
     ProgressBar prog_barcode;
     int jam,menit;
     String user="";
     String lokerID="";
+
+    FirebaseDatabase database;
+    DatabaseReference Booking;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +59,12 @@ public class booking extends AppCompatActivity {
         setContentView(R.layout.activity_booking);
 
         user = Common.currentUsers.getNpm().toString();
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
 
         Bundle bundle = new Bundle();
         bundle = getIntent().getExtras();
@@ -56,12 +75,23 @@ public class booking extends AppCompatActivity {
         btTimePicker = (Button)findViewById(R.id.timepick);
         btGenerate = (Button)findViewById(R.id.btn_booking);
         barcode = (ImageView)findViewById(R.id.barcode);
-        prog_barcode = (ProgressBar)findViewById(R.id.progress_barcode);
+        back = (ImageButton)findViewById(R.id.back_button);
 
-        prog_barcode.setVisibility(View.INVISIBLE);
         id_booking.setText(lokerID);
 
         user = Common.currentUsers.getNpm().toString();
+
+
+        database = FirebaseDatabase.getInstance();
+        Booking = database.getReference("Booking");
+
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         btGenerate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +111,7 @@ public class booking extends AppCompatActivity {
                     }
 
                 }
-                prog_barcode.setVisibility(View.INVISIBLE);
+
             }
         });
 
@@ -92,6 +122,20 @@ public class booking extends AppCompatActivity {
             }
         });
 
+
+        Booking.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.child(Common.currentUsers.getNpm()).exists()){
+                    barcode.setImageResource(R.drawable.checked);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void showTimeDialog() {
@@ -139,7 +183,6 @@ public class booking extends AppCompatActivity {
 
     private Bitmap TextToImageEncode(String Value) throws WriterException {
         BitMatrix bitMatrix;
-        prog_barcode.setVisibility(View.VISIBLE);
         try {
             bitMatrix = new MultiFormatWriter().encode(
                     Value,
@@ -169,7 +212,7 @@ public class booking extends AppCompatActivity {
         }
         Bitmap bitmap = Bitmap.createBitmap(bitMatrixWidth, bitMatrixHeight, Bitmap.Config.ARGB_4444);
 
-        bitmap.setPixels(pixels, 0, 600, 0, 0, bitMatrixWidth, bitMatrixHeight);
+        bitmap.setPixels(pixels, 0, 500, 0, 0, bitMatrixWidth, bitMatrixHeight);
         return bitmap;
     }
 }

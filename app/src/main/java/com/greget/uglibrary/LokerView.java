@@ -1,6 +1,7 @@
 package com.greget.uglibrary;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -10,8 +11,12 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.greget.uglibrary.Common.Common;
 import com.greget.uglibrary.Interface.ItemClickListener;
 import com.greget.uglibrary.Model.LokerModel;
 import com.greget.uglibrary.ViewHolder.LokerViewHolder;
@@ -19,7 +24,7 @@ import com.greget.uglibrary.ViewHolder.LokerViewHolder;
 public class LokerView extends AppCompatActivity {
 
     FirebaseDatabase database;
-    DatabaseReference Loker;
+    DatabaseReference Loker,Booking;
 
     RecyclerView recycler_loker;
     RecyclerView.LayoutManager layoutManager;
@@ -36,6 +41,7 @@ public class LokerView extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         Loker = database.getReference("Loker");
+        Booking = database.getReference("Booking");
 
         Bundle bundle = new Bundle();
 
@@ -91,8 +97,30 @@ public class LokerView extends AppCompatActivity {
                     viewHolder.TxtLokerStatus.setText(status);
                     viewHolder.TxtLokerStatus.setBackgroundColor(LokerView.this.getResources().getColor(R.color.full));
                 }
+
+                Booking.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.child(Common.currentUsers.getNpm()).exists()) {
+                            viewHolder.setItemClickListener(new ItemClickListener() {
+                                @Override
+                                public void onClick(View view, int position, boolean isLongClick) {
+                                    Toast.makeText(LokerView.this, "Anda telah menyewa 1 loker", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
             }
+
         };
         recycler_loker.setAdapter(adapter);
+
+
     }
 }
